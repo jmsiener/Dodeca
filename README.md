@@ -4,7 +4,7 @@ An Open Hardware, DIY Eurorack extensible platform allowing the configuration of
 The Dodeca can be chained together with other Dodeca boards. The
 typical configuration is the Dubldeca, which is two Dodeca boards
 configured in a left and right arrangement, as used by the
-[Octatrack 2x Setup Firmware](Octatrack 2x Setup).
+[Octatrack 2x Setup Firmware](Octatrack%202x%20Setup).
 
 # PCBs and panels
 
