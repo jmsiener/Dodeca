@@ -33,7 +33,6 @@ uint8_t wholetoggle;
 bool playing;
 
 
-
 uint8_t cc2active[] = {72, 73, 74, 75, 76 };
 uint8_t cc2out[] = {5, 7, 9, 10, 11};
 
