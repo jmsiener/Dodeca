@@ -15,7 +15,7 @@ Available from Magpie Modular:
 
 # Build resources
 
-This repository contains the [Build Guide](Build%20GuideBuild%20Guide.pdf) and [Hardware Resources](Hardware)
+This repository contains the [Build Guide](Build%20Guide/Build%20Guide.pdf) and [Hardware Resources](Hardware)
 
 Components for the Dodeca can be ordered from Mouser using [this cart](https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=bd52b6f226)
 
