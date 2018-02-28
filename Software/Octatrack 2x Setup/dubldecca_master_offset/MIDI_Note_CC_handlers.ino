@@ -4,10 +4,7 @@ void HandleNoteOn(byte channel, byte pitch, byte velocity) {
     if (velocity != 0) {
       if (modNote) {
         analogWrite(out2pin[modNote], velocity);
-        //Serial.print(pitch); 
-        //Serial.print(modNote); 
-        //Serial.print("\n"); 
-     }
+      }
      
     }
     else bothNoteOff(channel, pitch, velocity);
@@ -19,8 +16,6 @@ void HandleNoteOn(byte channel, byte pitch, byte velocity) {
       analogWrite(out2pin[0], velocity);
       analogWrite(A14, pitch+pitchoffset);
       analogWrite(out2pin[2], 127);
-      //Serial.print(pitch+pitchoffset);
-      //Serial.print("\n"); 
     }
     else bothNoteOff(channel, pitch, velocity);
   }

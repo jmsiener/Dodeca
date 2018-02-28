@@ -26,20 +26,18 @@ const uint8_t CHANB = 4;
 
 uint8_t out2pin[] = {23, 0, 22, 25, 20, 6, 21, 5, 9, 4, 10, 3};//output number to actual teensy pin, dont change.
 uint8_t whitekeys[] = {4, 0, 6, 0, 8, 0, 0, 0, 0, 0, 0, 0};//non zero keys sent to output number.
-uint8_t pulses;
 uint8_t pitchoffset = 0;
+uint8_t pulses;
 uint8_t sixteenthnotes; 
 uint8_t quartertoggle;
 uint8_t wholetoggle;
 bool playing;
 
-byte CLOCK = 248; 
-byte START = 250; 
-byte CONTINUE = 251; 
-byte STOP = 252; 
 
 uint8_t cc2active[] = {72, 73, 74, 75, 76 };
 uint8_t cc2out[] = {5, 7, 9, 10, 11};
+
+
 
 void setup() {
   // Initiate MIDI communications, listen to all channels
@@ -66,19 +64,12 @@ void setup() {
   MIDI.begin(MIDI_CHANNEL_OMNI);
   // Connect the Handlers to the library, so it is called upon reception.
   MIDI.setHandleNoteOn(HandleNoteOn);  // Put only the name of the function
-  usbMIDI.setHandleNoteOn(HandleNoteOn);  // Put only the name of the function
   MIDI.setHandleControlChange(HandleControlChange);
-  usbMIDI.setHandleControlChange(HandleControlChange);
   MIDI.setHandleNoteOff(HandleNoteOff);
-  usbMIDI.setHandleNoteOff(HandleNoteOff);
- 
   MIDI.setHandleClock(HandleClock);
   MIDI.setHandleStart(HandleStart);
   MIDI.setHandleStop(HandleStop);
   MIDI.setHandleContinue(HandleContinue);
-
-  usbMIDI.setHandleRealTimeSystem(RealTimeSystem); 
-
 
   Serial.begin(9600);
 }
@@ -86,25 +77,6 @@ void setup() {
 void loop() {
   // Call MIDI.read the fastest you can for real-time performance.
   MIDI.read();
-  usbMIDI.read();
-
 
   // There is no need to check if there are messages incoming if they are bound to a Callback function.
 }
-
-void RealTimeSystem(byte realtimebyte) { 
-  if(realtimebyte == CLOCK) { 
-    HandleClock();
-  } 
-  if(realtimebyte == STOP) { 
-    HandleStop();
-  } 
-  if(realtimebyte == START) { 
-    HandleStart();
-  }
-  if(realtimebyte == CONTINUE) { 
-    HandleContinue();
-  }
-} 
-
-
