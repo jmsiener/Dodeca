@@ -1,32 +1,32 @@
 /*
    Neutron magpie dodeca: 
 
-Right Side Dodceca - DUBDECA layout
+   LEFT SIDE
 
-1) Velocity (synth voice) Midi Channel 4
-2) Note out (synth voice) Midi Channel 4
-3) Gate (synth voice) Midi Channel 4
-4) 12) MIDI Clock out
-5) Note to Gate/Trig - C Midi Channel 2
-6) CC #72 MIDI Channel 2
-7) Note to Gate/Trig - D Midi Channel 2
-😎 CC #73 MIDI Channel 2
-9) Note to Gate/Trig - E Midi Channel 2
-10) CC #74 MIDI Channel 2
-11) CC #75 MIDI Channel 2
-12) CC #76 MIDI Channel 2
+1) Velocity (synth voice) Midi Channel 3
+2) Note out (synth voice) Midi Channel 3
+3) Gate (synth voice) Midi Channel 3
+4) CC# 71 MIDI Channel 1
+5) Note to Gate/Trig - C Midi Channel 1
+6) CC #72 MIDI Channel 1
+7) Note to Gate/Trig - D Midi Channel 1
+😎 CC #73 MIDI Channel 1
+9) Note to Gate/Trig - E Midi Channel 1
+10) CC #74 MIDI Channel 1
+11) CC #75 MIDI Channel 1
+12) CC #76 MIDI Channel 1
 
   
  * */
 
 #include <MIDI.h>
+MIDI_CREATE_DEFAULT_INSTANCE();
 
-const uint8_t CHANA = 2;//set the MIDI channel here!
-const uint8_t CHANB = 4;
+const uint8_t CHANA = 1;//set the MIDI channel here!
+const uint8_t CHANB = 3;
 
 uint8_t out2pin[] = {23, 0, 22, 25, 20, 6, 21, 5, 9, 4, 10, 3};//output number to actual teensy pin, dont change.
 uint8_t whitekeys[] = {4, 0, 6, 0, 8, 0, 0, 0, 0, 0, 0, 0};//non zero keys sent to output number.
-uint8_t pitchoffset = 1;
 uint8_t pulses;
 uint8_t sixteenthnotes; 
 uint8_t quartertoggle;
@@ -34,8 +34,8 @@ uint8_t wholetoggle;
 bool playing;
 
 
-uint8_t cc2active[] = {72, 73, 74, 75, 76 };
-uint8_t cc2out[] = {5, 7, 9, 10, 11};
+uint8_t cc2active[] = {71, 72, 73, 74, 75, 76 };
+uint8_t cc2out[] = {3, 5, 7, 9, 10, 11};
 
 
 
@@ -66,10 +66,10 @@ void setup() {
   MIDI.setHandleNoteOn(HandleNoteOn);  // Put only the name of the function
   MIDI.setHandleControlChange(HandleControlChange);
   MIDI.setHandleNoteOff(HandleNoteOff);
-  MIDI.setHandleClock(HandleClock);
-  MIDI.setHandleStart(HandleStart);
-  MIDI.setHandleStop(HandleStop);
-  MIDI.setHandleContinue(HandleContinue);
+//  MIDI.setHandleClock(HandleClock);
+//  MIDI.setHandleStart(HandleStart);
+//  MIDI.setHandleStop(HandleStop);
+//  MIDI.setHandleContinue(HandleContinue);
 
   Serial.begin(9600);
 }

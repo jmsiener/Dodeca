@@ -14,7 +14,7 @@ void HandleNoteOn(byte channel, byte pitch, byte velocity) {
     if (velocity != 0) {
 
       analogWrite(out2pin[0], velocity);
-      analogWrite(A14, pitch+pitchoffset);
+      analogWrite(A14, pitch);
       analogWrite(out2pin[2], 127);
     }
     else bothNoteOff(channel, pitch, velocity);
