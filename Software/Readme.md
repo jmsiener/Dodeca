@@ -1,6 +1,6 @@
 ### Software Versions
 
-There are some weird issues with recent older versions of the MIDI libraries in the Arduino and Teensydiuno software. If you are compiling from source, check your version numbers and be sure you have the correct source for your installation.
+There are some weird issues with some versions of the MIDI libraries in the Arduino and Teensydiuno software. If you are compiling from source, check your version numbers and be sure you have the correct source for your installation.
 
 **Dodeca USB MIDI** is an example of running one dodeca board with USB MIDI via the USB port on the Teensy. At the moment, to use this with Dubldeca, you would need to use 2 separate USB cables and duplicate this code and change MIDI channels as you like.
 
