@@ -8,7 +8,7 @@ See the Software folder for different versions of the dodeca/dubldeca firmware
 
 ### Dubldeca Versions
 
-There are some weird issues with recent older versions of the MIDI libraries in the Arduino and Teensydiuno software. If you are compiling from source, check your version numbers and be sure you have the correct source for your installation.
+There are some weird issues with some previous versions of the MIDI libraries in the Arduino and Teensydiuno software. If you are compiling from source, check your version numbers and be sure you have the correct source for your installation.
 
 Octatrack 2x Setup 1.8.5+ is for people running Arduino 1.8.5 or later with Teensydiuno 1.41 (most recent versions as of March 2018)
 
