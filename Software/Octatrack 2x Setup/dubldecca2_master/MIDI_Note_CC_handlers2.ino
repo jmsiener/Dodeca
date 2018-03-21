@@ -1,5 +1,5 @@
 void HandleNoteOn(byte channel, byte pitch, byte velocity) {
-  pitchCV = (pitch * V_scale) - 2; // note-number to pitch value for DAC output
+  pitchCV = (pitch * V_scale); // note-number to pitch value for DAC output
   pitchLED = map (pitch, 0, 127, 2*V_scale, AMAX);  // set brightness of pitch led
   
   // 1 octave = 1 volt
