@@ -2,9 +2,11 @@
 An Open Hardware, DIY Eurorack extensible platform allowing the configuration of custom MIDI outputs. 
 
 
-# Dubldeca for Octatrack Notes
+## Dubldeca Software for Octatrack
 
-## Versions
+See the Software folder for different versions of the dodeca/dubldeca firmware
+
+### Dubldeca Versions
 
 There are some weird issues with recent older versions of the MIDI libraries in the Arduino and Teensydiuno software. If you are compiling from source, check your version numbers and be sure you have the correct source for your installation.
 
