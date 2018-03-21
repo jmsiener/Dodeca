@@ -14,6 +14,6 @@ Octatrack 2x Setup 1.8.1 is for people running Arduino 1.8.1 or later with Teens
 
 If you are having problems - download and install fresh copies of Arduino and Teensydiuno and use the 1.8.5 versions of this code
 
-	https://www.arduino.cc/en/Main/Software
+	[Arduino Software](https://www.arduino.cc/en/Main/Software) 
 	
-	https://www.pjrc.com/teensy/td_download.html
+	[Teensydiuno Software](https://www.pjrc.com/teensy/td_download.html) 
