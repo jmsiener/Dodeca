@@ -28,7 +28,6 @@ const uint8_t CHANB = 4;
 
 // output array is {vel, pitchled, trig, clock, trig, cc, trig, cc, trig, cc, cc, cc}
 uint8_t out2pin[] = {23, 32, 22, 25, 20, 6, 21, 5, 9, 4, 10, 3};//output number to actual teensy pin, dont change.
-// dig pins 4/6/8?  {x,  x,  0,  0,  0,  x,  0, x, 0, x,  x, x}
 
 uint8_t whitekeys[] = {4, 0, 6, 0, 8, 0, 0, 0, 0, 0, 0, 0}; //non zero items are trigs sent to output number.
 
@@ -38,7 +37,8 @@ uint8_t quartertoggle;
 uint8_t wholetoggle;
 bool playing;
 word pitchCV;
-uint8_t pitchLED;
+uint16_t pitchLED;
+uint16_t pitchVEL;
 uint8_t RES;
 uint16_t AMAX;
 word V_scale;
@@ -62,22 +62,32 @@ void setup() {
       analogWriteFrequency(out2pin[i], 200000);
     }
   }
-
-  RES = 10;
+// set DAC Resolution
+  RES = 12;
 //  RES = 7;
   analogWriteResolution(RES); // set resolution for DAC
   AMAX = pow(2,RES);
   V_scale = pow(2,(RES-7));
-  
+
+  /*
+   * Debug
+   Serial.print("SCALE");  
+   Serial.print("\t");     
+   Serial.print(V_scale);
+   Serial.println("");
+
+   Serial.print("AMAX");   
+   Serial.print("\t");     
+   Serial.print(AMAX);
+   Serial.println("");
+*/
    //start up LED animation
    for (int i = 0; i < 12; i ++) {
-    for (int j = 0; j < 256; j ++) {
-	    analogWrite(out2pin[i], j );
-	    delay(1);
-    }
+	    analogWrite(out2pin[i], AMAX );
+	    delay(100);
     
-    if (out2pin[i] == 32) analogWrite(A14, 0);
-    analogWrite(out2pin[i], 0);
+      if (out2pin[i] == 32) analogWrite(A14, 0);
+      analogWrite(out2pin[i], 0);
    }
  //end of start up animantion
 
