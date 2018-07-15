@@ -21,6 +21,7 @@ Right Side Dodceca - DUBDECA layout
 
 #include <MIDI.h>
 
+
 MIDI_CREATE_DEFAULT_INSTANCE();
 
 const uint8_t CHANA = 2;//set the MIDI channel here!
@@ -45,7 +46,7 @@ uint8_t RES;
 uint16_t AMAX;
 word V_scale;
 
-byte clockdiv = 0;
+byte clockdiv = 1;
 byte CLOCK = 248; 
 byte START = 250; 
 byte CONTINUE = 251; 
@@ -54,9 +55,13 @@ byte STOP = 252;
 uint8_t cc2active[] = {72, 73, 74, 75, 76, 77 };
 uint8_t cc2out[] = {5, 7, 9, 10, 11};
 
+const int ledPin = 13;
 
 
 void setup() {
+  //Serial.begin(9600);
+  //pinMode(ledPin, OUTPUT);
+
   // Initiate MIDI communications, listen to all channels
 
   for (int i = 0; i < 12; i ++) {

@@ -12,14 +12,17 @@ void HandleClock(void){
 // and  if (pulses > ((3<<dv)>>1)) for the high/low switching
 
     dv = clockdiv >> 4;
-    if (pulses < ((3<<dv)-1)){
+     if (pulses > ((3<<dv)-1)){
         pulses = 0;
         sixteenthnotes ++;     
     }
-    if (pulses > ((3<<dv)>>1)){
+    if (pulses < ((3<<dv)>>1)){
         analogWrite(out2pin[3],AMAX-1); // clock LED on
+       //  digitalWrite(ledPin, HIGH);   // set the LED on
+
     } else {
         analogWrite(out2pin[3],0); // clock LED off
+      //  digitalWrite(ledPin, LOW);    // set the LED off
     }
  
 
