@@ -70,25 +70,12 @@ void setup() {
       analogWriteFrequency(out2pin[i], 200000);
     }
   }
-// set DAC Resolution
+  // set DAC Resolution
   RES = 12;
-//  RES = 7;
   analogWriteResolution(RES); // set resolution for DAC
   AMAX = pow(2,RES);
   V_scale = pow(2,(RES-7));
 
-  /*
-   * Debug
-   Serial.print("SCALE");  
-   Serial.print("\t");     
-   Serial.print(V_scale);
-   Serial.println("");
-
-   Serial.print("AMAX");   
-   Serial.print("\t");     
-   Serial.print(AMAX);
-   Serial.println("");
-*/
    //start up LED animation
    for (int i = 0; i < 12; i ++) {
 	    analogWrite(out2pin[i], AMAX );

@@ -1,34 +1,22 @@
 void HandleClock(void){
-  if (playing){
-  pulses ++;
-  
-// 24 pulses per quarter note
-// change 5 to 11 it will do 1/8 (and change the 3 to 6)
-// change to 23 and 12 for 1/4 notes
-
-//ok, you can make 2 variables from a cc. first reducing the bits from 7 to 3 with ccvalue>>4. so you have 0-7
-// call it "dv" for now
-// if (pulses < ((3<<dv)-1)) for that part.
-// and  if (pulses > ((3<<dv)>>1)) for the high/low switching
+    if (playing){
+    pulses ++;
 
     dv = clockdiv >> 4;
-     if (pulses > ((3<<dv)-1)){
-        pulses = 0;
-        sixteenthnotes ++;     
-    }
-    if (pulses < ((3<<dv)>>1)){
+    if (pulses > ((3<<dv)-1)){
+       pulses = 0;
+       sixteenthnotes ++;     
+     }
+     if (pulses < ((3<<dv)>>1)){
         analogWrite(out2pin[3],AMAX-1); // clock LED on
        //  digitalWrite(ledPin, HIGH);   // set the LED on
-
-    } else {
+     } else {
         analogWrite(out2pin[3],0); // clock LED off
       //  digitalWrite(ledPin, LOW);    // set the LED off
-    }
- 
+     }
 
-  }
+   }
 }
-
 
  void HandleStart(){
   pulses = 0;

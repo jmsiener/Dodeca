@@ -67,10 +67,10 @@ void bothNoteOff(byte channel, byte pitch, byte velocity) { //this is called by 
 
 void HandleControlChange (byte channel, byte number, byte value) {
   if (channel == CHANA) {
-    if ( number == cc2active[5]) { // get  controller to set clockdiv
+    if ( number == cc2active[6]) { // get  controller to set clockdiv
         clockdiv = value;
-     }
-    for (int i = 0; i < 5; i ++) {
+    }
+    for (int i = 0; i < 6; i ++) {
       if ( number  == cc2active[i]) { //ignore wrong channel or CC numbers
         analogWrite(out2pin[cc2out[i]], value * V_scale);
       }

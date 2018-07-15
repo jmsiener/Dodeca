@@ -59,6 +59,7 @@ void bothNoteOff(byte channel, byte pitch, byte velocity) { //this is called by 
     // TURN OFF VELOCITY LED, NOTE LED AND V/OCT LED
     analogWrite(out2pin[2], 0); // velocity off
     analogWrite(out2pin[1], 0); // note led off
+    // comment this out if you want the pitch to stay on until the next pitch value is received
     analogWrite(A14, 0); // note cv off
   }
 }
@@ -66,7 +67,6 @@ void bothNoteOff(byte channel, byte pitch, byte velocity) { //this is called by 
 
 void HandleControlChange (byte channel, byte number, byte value) {
   if (channel == CHANA) {
-
     for (int i = 0; i < 5; i ++) {
       if ( number  == cc2active[i]) { //ignore wrong channel or CC numbers
         analogWrite(out2pin[cc2out[i]], value * V_scale);
